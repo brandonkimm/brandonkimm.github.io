@@ -1,0 +1,66 @@
+
+/* Shared website styling */
+
+:root {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --text: #242831;
+  --muted: #68717d;
+  --accent: #2563eb;
+  --border: #e8e8e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+}
+
+.site-container {
+  width: min(100% - 48px, 980px);
+  margin: 0 auto;
+}
+
+.content-page {
+  max-width: 800px;
+  padding: 65px 0 100px;
+}
+
+.content-page h1 {
+  font-size: clamp(2.3rem, 5vw, 3rem);
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.content-page h2 {
+  margin-top: 40px;
+  font-size: 1.4rem;
+  letter-spacing: -0.025em;
+}
+
+.content-page p,
+.content-page li {
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.content-page a {
+  color: var(--accent);
+}

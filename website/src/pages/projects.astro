@@ -1,57 +1,137 @@
 
 ---
-import '../styles/global.css';
-import '../styles/portfolio.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = [
   {
     title: 'DDoS Detection Pipeline',
+    category: 'MACHINE LEARNING · SECURITY',
     description:
       'A machine learning pipeline for classifying network traffic and investigating DDoS attack patterns.',
-    technologies: 'Python, scikit-learn, pandas',
+    technologies: ['Python', 'scikit-learn', 'pandas'],
   },
   {
     title: 'LLM Security Research',
+    category: 'AI · RESEARCH',
     description:
       'Research explorations involving language models, online learning, and data poisoning.',
-    technologies: 'Python, Machine Learning, LLMs',
+    technologies: ['Python', 'Machine Learning', 'LLMs'],
   },
 ];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Projects | Your Name</title>
-  </head>
-  <body>
-    <main class="content-page">
-      <a href="/">← Home</a>
-      <h1>Projects</h1>
-      <p>
-        A selection of my programming projects,
-        technical experiments, and research work.
-      </p>
+<BaseLayout
+  title="Projects | Brandon Kim"
+  description="Explore Brandon Kim's projects in machine learning, network security, and large language models."
+>
+  <div class="content-page">
+    <p class="eyebrow">SELECTED WORK</p>
 
+    <h1>Projects<span class="accent">.</span></h1>
+
+    <p class="intro">
+      A selection of my programming projects,
+      technical experiments, and research work.
+    </p>
+
+    <div class="projects-list">
       {projects.map((project) => (
-        <article>
+        <article class="project">
+          <p class="category">{project.category}</p>
+
           <h2>{project.title}</h2>
-          <p>{project.description}</p>
-          <small>{project.technologies}</small>
+
+          <p class="description">{project.description}</p>
+
+          <div class="tags">
+            {project.technologies.map((tech) => (
+              <span>{tech}</span>
+            ))}
+          </div>
         </article>
       ))}
-    </main>
-  </body>
-</html>
+    </div>
+  </div>
+</BaseLayout>
 
 <style>
-  article {
-    border-bottom: 1px solid #e5e7eb;
-    padding: 20px 0;
+  .eyebrow,
+  .category {
+    color: #64748b;
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
-  small {
-    color: #64748b;
+  .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .accent {
+    color: #2563eb;
+  }
+
+  .intro {
+    color: #68717d;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    max-width: 650px;
+  }
+
+  .projects-list {
+    margin-top: 48px;
+  }
+
+  .project {
+    padding: 30px 0 38px;
+    border-bottom: 1px solid #e8e8e5;
+  }
+
+  .project:first-child {
+    border-top: 1px solid #e8e8e5;
+  }
+
+  .project h2 {
+    color: #242831;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    margin: 12px 0;
+  }
+
+  .description {
+    color: #68717d;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    max-width: 700px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .tags span {
+    background: #f0f0ed;
+    color: #58616c;
+    padding: 6px 11px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 700px) {
+    .projects-list {
+      margin-top: 32px;
+    }
+
+    .project {
+      padding: 24px 0 30px;
+    }
+
+    .project h2 {
+      font-size: 1.3rem;
+    }
   }
 </style>
