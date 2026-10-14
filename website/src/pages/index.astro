@@ -7,16 +7,20 @@ const github = 'https://github.com/brandonkimm';
 
 const projects = [
   {
+    number: '01',
+    category: 'MACHINE LEARNING / SECURITY',
     title: 'DDoS Detection Pipeline',
-    category: 'Machine Learning · Security',
     description:
-      'Exploring network intrusion detection using classical machine learning models and traffic data.',
+      'A machine learning pipeline for detecting and classifying distributed denial-of-service attacks using network traffic data.',
+    technologies: ['Python', 'scikit-learn', 'pandas'],
   },
   {
+    number: '02',
+    category: 'AI / RESEARCH',
     title: 'LLM Security Research',
-    category: 'AI · Research',
     description:
-      'Investigating data poisoning, online learning, and security challenges in language models.',
+      'Exploring data poisoning, online learning, and vulnerabilities in large language models.',
+    technologies: ['Machine Learning', 'LLMs', 'Security'],
   },
 ];
 
@@ -150,7 +154,8 @@ const interests = [
     max-width: 790px;
   }
 
-  .eyebrow {
+  .eyebrow,
+  .section-label {
     color: #64748b;
     text-transform: uppercase;
     font-size: 0.72rem;
@@ -197,7 +202,7 @@ const interests = [
     margin-top: 16px;
   }
 
-  .links {
+  .hero-buttons {
     display: flex;
     align-items: center;
     gap: 22px;
@@ -205,10 +210,16 @@ const interests = [
     margin-top: 32px;
   }
 
-  .links a {
+  .button-primary {
+    background: #252b36;
+    color: white;
+    border-radius: 7px;
+    padding: 12px 22px;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.2s;
   }
 
   .primary {
@@ -257,7 +268,28 @@ const interests = [
     margin-bottom: 100px;
   }
 
-  .section-heading {
+  .interests {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .interests span,
+  .tech-list span {
+    background: #f0f0ed;
+    padding: 7px 13px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #58616c;
+  }
+
+  .projects-section,
+  .writing-section {
+    margin-bottom: 110px;
+  }
+
+  .section-header {
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -268,11 +300,17 @@ const interests = [
   .view-all {
     color: #2563eb;
     font-size: 0.9rem;
+    font-weight: 550;
     text-decoration: none;
     font-weight: 550;
   }
 
   .view-all:hover {
+    text-decoration: underline;
+  }
+
+  .view-all:hover,
+  .text-link:hover {
     text-decoration: underline;
   }
 
