@@ -1,5 +1,7 @@
 
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
 const name = 'Brandon Kim';
 const github = 'https://github.com/brandonkimm';
 
@@ -21,268 +23,191 @@ const projects = [
     technologies: ['Machine Learning', 'LLMs', 'Security'],
   },
 ];
+
+const interests = [
+  'Machine Learning',
+  'Computer Systems',
+  'AI Security',
+  'Applied Mathematics',
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta
-      name="description"
-      content="Brandon Kim — Computer Science, research, projects, and technical writing."
-    />
-    <title>Brandon Kim | Computer Science & Research</title>
-  </head>
+<BaseLayout
+  title="Brandon Kim | Computer Science & Research"
+  description="Brandon Kim — Applied Mathematics–Computer Science student at Brown University. Projects, research, and technical writing."
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <p class="eyebrow">
+      BROWN UNIVERSITY · APPLIED MATHEMATICS–CS
+    </p>
 
-  <body>
-    <div class="container">
-      <header class="navbar">
-        <a href="/" class="logo">Brandon Kim<span class="dot">.</span></a>
+    <h1>Hi, I'm {name}<span class="accent">.</span></h1>
 
-        <nav aria-label="Main navigation">
-          <a href="/about">About</a>
-          <a href="/projects">Projects</a>
-          <a href="/blog">Writing</a>
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub ↗
-          </a>
-        </nav>
-      </header>
+    <p class="intro">
+      I'm an Applied Mathematics–Computer Science student
+      at Brown University interested in machine learning,
+      computer systems, and security.
+    </p>
 
-      <main>
-        <section class="hero">
-          <p class="eyebrow">
-            BROWN UNIVERSITY · APPLIED MATHEMATICS–CS
-          </p>
+    <p class="intro-secondary">
+      I enjoy building software, understanding research,
+      and exploring how complex systems work.
+      This is where I share my projects, technical writing,
+      and things I'm learning.
+    </p>
 
-          <h1>Hey, I'm Brandon<span class="dot">.</span></h1>
+    <div class="links">
+      <a class="primary" href="/projects">
+        Explore my work →
+      </a>
 
-          <p class="intro">
-            I'm an Applied Mathematics–Computer Science
-            student at Brown University interested in
-            machine learning, computer systems, and security.
-          </p>
-
-          <p class="intro-secondary">
-            I enjoy understanding how things work,
-            building software, and exploring research ideas.
-            This is where I share my projects,
-            technical writing, and things I'm learning.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="/projects" class="button-primary">
-              Explore my work <span>→</span>
-            </a>
-            <a href="/blog" class="button-secondary">
-              Read my writing ↗
-            </a>
-          </div>
-        </section>
-
-        <section class="interests-section">
-          <p class="section-label">AREAS OF INTEREST</p>
-          <div class="interests">
-            <span>Machine Learning</span>
-            <span>Computer Systems</span>
-            <span>AI Security</span>
-            <span>Applied Mathematics</span>
-          </div>
-        </section>
-
-        <section class="projects-section">
-          <div class="section-header">
-            <div>
-              <p class="section-label">WHAT I'VE WORKED ON</p>
-              <h2>Featured Projects</h2>
-            </div>
-            <a href="/projects" class="view-all">All projects ↗</a>
-          </div>
-
-          <div class="project-grid">
-            {projects.map((project) => (
-              <article class="project-card">
-                <div class="project-top">
-                  <span class="project-number">
-                    {project.number}
-                  </span>
-                  <span class="project-category">
-                    {project.category}
-                  </span>
-                </div>
-
-                <div>
-                  <h3>{project.title}</h3>
-                  <p class="project-description">
-                    {project.description}
-                  </p>
-                </div>
-
-                <div class="tech-list">
-                  {project.technologies.map((tech) => (
-                    <span>{tech}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section class="writing-section">
-          <div class="section-header">
-            <div>
-              <p class="section-label">THOUGHTS & EXPLORATIONS</p>
-              <h2>Writing & Notes</h2>
-            </div>
-            <a href="/blog" class="view-all">
-              All writing ↗
-            </a>
-          </div>
-
-          <div class="writing-content">
-            <div class="writing-icon">✳</div>
-            <div>
-              <h3>Learning in public.</h3>
-              <p>
-                I write about research papers,
-                computer science concepts,
-                books, and technical experiments.
-                These notes are a way to explore
-                ideas more deeply and share what I learn.
-              </p>
-              <a href="/blog" class="text-link">
-                Explore my writing →
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <span>© {new Date().getFullYear()} {name}</span>
-        <div class="footer-links">
-          <a href={github}>GitHub</a>
-          <a href="/blog">Writing</a>
-          <a href="/about">About</a>
-        </div>
-      </footer>
+      <a
+        class="secondary"
+        href={github}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub ↗
+      </a>
     </div>
-  </body>
-</html>
+  </section>
+
+  <!-- Interests Section -->
+  <section class="interests-section">
+    <p class="eyebrow">AREAS OF INTEREST</p>
+
+    <div class="interests">
+      {interests.map((interest) => (
+        <span class="interest-tag">{interest}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">WHAT I'VE WORKED ON</p>
+        <h2>Featured Projects</h2>
+      </div>
+
+      <a href="/projects" class="view-all">
+        All projects ↗
+      </a>
+    </div>
+
+    <div class="project-grid">
+      {projects.map((project) => (
+        <article class="project">
+          <p class="project-category">
+            {project.category}
+          </p>
+
+          <h3>{project.title}</h3>
+
+          <p class="project-description">
+            {project.description}
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Writing Section -->
+  <section class="writing-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">THOUGHTS & EXPLORATIONS</p>
+        <h2>Writing & Notes</h2>
+      </div>
+
+      <a href="/blog" class="view-all">
+        All writing ↗
+      </a>
+    </div>
+
+    <div class="writing-content">
+      <div class="writing-icon" aria-hidden="true">✳</div>
+
+      <div>
+        <h3>Learning in public.</h3>
+
+        <p>
+          I write about research papers, computer science
+          concepts, books, and technical experiments.
+          These notes help me explore ideas more deeply
+          and share what I learn.
+        </p>
+
+        <a href="/blog" class="view-all">
+          Explore my writing →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
 
 <style>
-  :global(*) {
-    box-sizing: border-box;
-  }
-
-  :global(html) {
-    scroll-behavior: smooth;
-  }
-
-  :global(body) {
-    margin: 0;
-    background: #fafaf8;
-    color: #242831;
-    font-family: Inter, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.7;
-  }
-
-  :global(a) {
-    color: inherit;
-  }
-
-  .container {
-    width: min(100% - 48px, 980px);
-    margin: 0 auto;
-  }
-
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px 0;
-    border-bottom: 1px solid #e8e8e5;
-    gap: 20px;
-  }
-
-  .logo {
-    font-size: 1.15rem;
-    font-weight: 750;
-    text-decoration: none;
-    letter-spacing: -0.035em;
-  }
-
-  .dot {
-    color: #2563eb;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-
-  nav a,
-  .footer-links a {
-    text-decoration: none;
-    color: #59616e;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-  }
-
-  nav a:hover,
-  .footer-links a:hover {
-    color: #2563eb;
-  }
-
   .hero {
-  padding: 75px 0 85px;
-  max-width: 790px;
+    padding: 85px 0 95px;
+    max-width: 790px;
   }
 
   .eyebrow,
   .section-label {
     color: #64748b;
+    text-transform: uppercase;
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     font-weight: 650;
   }
 
+  .accent {
+    color: #2563eb;
+  }
+
   h1 {
-    font-size: clamp(3rem, 6vw, 5rem);
-    line-height: 1.12;
-    letter-spacing: -0.065em;
-    margin: 16px 0 25px;
-    font-weight: 750;
+    font-size: clamp(2.8rem, 6vw, 4.6rem);
+    letter-spacing: -0.06em;
+    line-height: 1.15;
+    margin: 18px 0 25px;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    letter-spacing: -0.04em;
+    margin: 8px 0 0;
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    letter-spacing: -0.025em;
+    margin: 0 0 12px;
   }
 
   .intro {
-    font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-    line-height: 1.75;
-    font-weight: 450;
-    max-width: 720px;
-    margin: 0 0 18px;
+    color: #242831;
+    max-width: 700px;
+    font-size: 1.2rem;
+    line-height: 1.8;
   }
 
   .intro-secondary {
     color: #68717d;
+    max-width: 660px;
     font-size: 1rem;
-    max-width: 650px;
-    line-height: 1.9;
+    line-height: 1.85;
+    margin-top: 16px;
   }
 
   .hero-buttons {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    gap: 18px;
-    margin-top: 35px;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-top: 32px;
   }
 
   .button-primary {
@@ -291,31 +216,56 @@ const projects = [
     border-radius: 7px;
     padding: 12px 22px;
     text-decoration: none;
+    font-size: 0.9rem;
     font-weight: 600;
     font-size: 0.9rem;
     transition: background 0.2s, transform 0.2s;
   }
 
-  .button-primary:hover {
-    background: #2563eb;
-    transform: translateY(-2px);
+  .primary {
+    display: inline-block;
+    background: #252b36;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    transition: background 0.2s;
   }
 
-  .button-secondary {
-    padding: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+  .primary:hover {
+    background: #2563eb;
+  }
+
+  .secondary {
     color: #475569;
   }
 
-  .button-secondary:hover {
+  .secondary:hover {
     color: #2563eb;
   }
 
   .interests-section {
-    padding: 27px 0 75px;
+    padding: 30px 0 75px;
     border-top: 1px solid #e8e8e5;
+  }
+
+  .interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .interest-tag {
+    padding: 7px 13px;
+    background: #f0f0ed;
+    color: #58616c;
+    border-radius: 5px;
+    font-size: 0.8rem;
+  }
+
+  .projects-section,
+  .writing-section {
+    margin-bottom: 100px;
   }
 
   .interests {
@@ -347,19 +297,16 @@ const projects = [
     margin-bottom: 28px;
   }
 
-  h2 {
-    font-size: 1.9rem;
-    letter-spacing: -0.045em;
-    line-height: 1.25;
-    margin: 8px 0 0;
-  }
-
-  .view-all,
-  .text-link {
+  .view-all {
     color: #2563eb;
     font-size: 0.9rem;
     font-weight: 550;
     text-decoration: none;
+    font-weight: 550;
+  }
+
+  .view-all:hover {
+    text-decoration: underline;
   }
 
   .view-all:hover,
@@ -373,150 +320,74 @@ const projects = [
     gap: 18px;
   }
 
-  .project-card {
+  .project {
+    background: white;
     border: 1px solid #e4e6e8;
-    background: #fff;
-    padding: 27px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    transition: border-color 0.2s, transform 0.2s;
+    padding: 28px;
+    transition: border-color 0.2s;
   }
 
-  .project-card:hover {
+  .project:hover {
     border-color: #a6b7ce;
-    transform: translateY(-3px);
-  }
-
-  .project-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .project-number {
-    font-family: ui-monospace, monospace;
-    color: #a0a7b1;
-    font-size: 0.85rem;
   }
 
   .project-category {
-    font-size: 0.65rem;
     color: #708198;
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
     font-weight: 650;
-    letter-spacing: 0.065em;
-    text-align: right;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-    letter-spacing: -0.025em;
-    margin: 0 0 10px;
+    margin: 0 0 30px;
   }
 
   .project-description {
     color: #66717e;
-    font-size: 0.91rem;
-    margin: 0;
+    font-size: 0.92rem;
     line-height: 1.8;
-  }
-
-  .tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: auto;
-  }
-
-  .tech-list span {
-    padding: 5px 9px;
-    font-size: 0.72rem;
-    background: #f4f5f6;
+    margin: 0;
   }
 
   .writing-content {
     border-top: 1px solid #e4e6e8;
-    padding-top: 30px;
+    padding-top: 32px;
     display: flex;
-    gap: 23px;
+    align-items: flex-start;
+    gap: 24px;
   }
 
   .writing-icon {
-    font-size: 1.8rem;
     color: #2563eb;
-    line-height: 1.4;
+    font-size: 1.8rem;
+    line-height: 1.3;
   }
 
   .writing-content p {
     color: #68717d;
     font-size: 0.95rem;
+    line-height: 1.85;
     max-width: 650px;
-  }
-
-  .writing-content h3 {
-    margin-bottom: 5px;
-  }
-
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    border-top: 1px solid #e8e8e5;
-    padding: 30px 0 45px;
-    color: #84909e;
-    font-size: 0.85rem;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 23px;
+    margin: 0 0 18px;
   }
 
   @media (max-width: 700px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 22px 0;
-    }
-
-    nav {
-      flex-wrap: wrap;
-      gap: 13px 20px;
-    }
-
-    nav a {
-      font-size: 0.85rem;
-    }
-
     .hero {
-      padding: 72px 0 75px;
-    }
-
-    .interests-section {
-      padding-bottom: 55px;
+      padding: 70px 0 75px;
     }
 
     .project-grid {
       grid-template-columns: 1fr;
     }
 
-    .section-header {
-      align-items: flex-start;
+    .section-heading {
       flex-direction: column;
+      align-items: flex-start;
       gap: 8px;
     }
 
     .projects-section,
     .writing-section {
       margin-bottom: 75px;
-    }
-
-    footer {
-      align-items: flex-start;
-      flex-direction: column;
     }
   }
 </style>

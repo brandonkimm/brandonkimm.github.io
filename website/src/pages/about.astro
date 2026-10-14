@@ -1,46 +1,103 @@
 
 ---
-import '../styles/global.css';
-import '../styles/portfolio.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>About | Your Name</title>
-  </head>
-  <body>
-    <main class="content-page">
-      <a href="/">← Home</a>
+<BaseLayout
+  title="About | Brandon Kim"
+  description="Learn about Brandon Kim, an Applied Mathematics–Computer Science student at Brown University interested in machine learning, computer systems, and security."
+>
+  <div class="content-page">
+    <p class="eyebrow">A LITTLE ABOUT ME</p>
 
-      <h1>About Me</h1>
+    <h1>About Me<span class="accent">.</span></h1>
 
-      <p>
-        I'm a student at Brown University studying
-        Applied Mathematics–Computer Science.
-      </p>
+    <p class="intro">
+      I'm Brandon, an Applied Mathematics–Computer Science
+      student at Brown University.
+    </p>
 
-      <p>
-        My interests include machine learning,
-        computer systems, cybersecurity,
-        and the intersection of research and engineering.
-      </p>
+    <p>
+      My interests include machine learning,
+      computer systems, cybersecurity,
+      and the intersection of research and engineering.
+    </p>
 
+    <section class="about-section">
       <h2>Research Interests</h2>
+
       <ul>
         <li>Large language models and security</li>
         <li>Data poisoning and online learning</li>
         <li>Operating systems</li>
         <li>Machine learning for network security</li>
       </ul>
+    </section>
 
+    <section class="about-section">
       <h2>Outside Research</h2>
+
       <p>
         I use this website to share projects,
         technical notes, and reflections on
         research papers and books.
       </p>
-    </main>
-  </body>
-</html>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    color: #64748b;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    font-weight: 650;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .accent {
+    color: #2563eb;
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    font-weight: 450;
+    color: #242831;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .about-section {
+    margin-top: 42px;
+  }
+
+  .about-section h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 18px;
+  }
+
+  .about-section ul {
+    padding-left: 24px;
+  }
+
+  .about-section li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+  }
+
+  .about-section p {
+    line-height: 1.85;
+  }
+
+  @media (max-width: 700px) {
+    .intro {
+      font-size: 1.1rem;
+    }
+
+    .about-section {
+      margin-top: 32px;
+    }
+  }
+</style>
