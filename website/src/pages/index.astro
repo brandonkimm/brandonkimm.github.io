@@ -222,6 +222,30 @@ const interests = [
     transition: background 0.2s, transform 0.2s;
   }
 
+  /* Space between the primary button and GitHub link. */
+  .links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 42px;
+    row-gap: 16px;
+    margin-top: 32px;
+  }
+
+  /* Keep section subtitles and headings visually distinct. */
+  .section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .section-heading .eyebrow {
+    margin: 0 0 20px;
+  }
+
   .primary {
     display: inline-block;
     background: #252b36;
