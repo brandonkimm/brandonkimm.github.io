@@ -1,5 +1,9 @@
-
 ---
+interface Props {
+  minimal?: boolean;
+}
+const { minimal = false } = Astro.props;
+
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
@@ -15,15 +19,11 @@ const github = 'https://github.com/brandonkimm';
   </a>
 
   <nav aria-label="Main navigation">
-    {navLinks.map((link) => (
+    {!minimal && navLinks.map((link) => (
       <a href={link.href}>{link.label}</a>
     ))}
 
-    <a
-      href={github}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={github} target="_blank" rel="noopener noreferrer">
       GitHub ↗
     </a>
   </nav>
@@ -40,15 +40,14 @@ const github = 'https://github.com/brandonkimm';
   }
 
   .logo {
-    font-size: 1.15rem;
-    font-weight: 750;
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 400;
     text-decoration: none;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.025em;
   }
 
-  .dot {
-    color: #2563eb;
-  }
+  .dot { color: #2563eb; }
 
   nav {
     display: flex;
@@ -63,9 +62,7 @@ const github = 'https://github.com/brandonkimm';
     transition: color 0.2s;
   }
 
-  nav a:hover {
-    color: #2563eb;
-  }
+  nav a:hover { color: #2563eb; }
 
   @media (max-width: 700px) {
     .navbar {
@@ -79,8 +76,6 @@ const github = 'https://github.com/brandonkimm';
       gap: 13px 20px;
     }
 
-    nav a {
-      font-size: 0.85rem;
-    }
+    nav a { font-size: 0.85rem; }
   }
 </style>

@@ -122,13 +122,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   .prose :global(h2),
   .prose :global(h3),
   .prose :global(h4) {
+    font-family: var(--font-display);
+    font-weight: 400;
     color: var(--text);
     letter-spacing: -0.025em;
     line-height: 1.35;
   }
 
   .prose :global(h2) {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 2.5em 0 0.8em;
   }
 
